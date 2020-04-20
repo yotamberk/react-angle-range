@@ -1,7 +1,3 @@
-import { ExampleComponent } from '.'
+// import { AngleRange } from ".";
 
-describe('ExampleComponent', () => {
-  it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
-})
+describe("AngleRange", () => {});

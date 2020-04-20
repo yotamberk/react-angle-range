@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.15",
     "react": "link:../node_modules/react",
+    "react-angle-range": "link:..",
     "react-dom": "link:../node_modules/react-dom",
-    "react-scripts": "link:../node_modules/react-scripts",
-    "react-angle-range": "link:.."
+    "react-scripts": "link:../node_modules/react-scripts"
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
