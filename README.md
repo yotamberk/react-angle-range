@@ -6,21 +6,49 @@
 
 ## Install
 
+via npm:
+
 ```bash
 npm install --save react-angle-range
+```
+
+via yarn:
+
+```bash
+yarn add react-angle-range
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'react-angle-range'
-import 'react-angle-range/dist/index.css'
+import React, { Component } from 'react';
+import AngleRange from 'react-angle-range';
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return (
+      <AngleRange
+        // for styling
+        classes,
+       
+        // required
+        value = { from: 0, to: 90 },
+        onChange = ({ from = 0, to = 90 }) => {},
+        
+        // optional
+        isDisabled = false,
+        limitFrom = { min: 0, max: 90 },
+        limitTo = { min: 0, max: 90 },
+        radius = RADIUS,
+        handlerRangeRadiusOffset = 51,
+        handlerRadius = 10,
+        offsetHandlerRadius = 10,
+        offsetHandlerRadiusOffset = 10,
+        min = 0,
+        max = 359,
+        isQuarterCircle = false
+      />
+    )
   }
 }
 ```
