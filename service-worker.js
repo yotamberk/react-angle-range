@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-angle-range/precache-manifest.38af9cbfeb1bb7ef48b95e1cfa489a09.js"
+  "/react-angle-range/precache-manifest.7605ecdbb2b91616aef1c0ac418734d6.js"
 );
 
 self.addEventListener('message', (event) => {
