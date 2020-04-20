@@ -1,24 +1,15 @@
 import _set from 'lodash/set';
 import React, { useState, useCallback } from "react";
 
-import { AngleRange } from 'react-angle-range'
-import 'react-angle-range/dist/index.css'
+import { AngleRange } from 'react-angle-range';
+import 'react-angle-range/dist/index.css';
 
 import './App.css';
 
-const defaultDemand = {
-  name: 'Prisma demand',
-  productParams: {
-    controlledInputs: {
-      elevationAngle: {
-        from: 0,
-        to: 90,
-      },
-      azimuthAngle: {
-        from: 0,
-        to: 180,
-      }
-    },
+const defaultAngleRange = {
+  example1: {
+    from: 0,
+    to: 180,
   },
 }
 
@@ -27,33 +18,32 @@ const modulus360 = (angle) => (
 )
 
 function App() {
-  const [ demand, setDemand ] = useState(defaultDemand)
+  const [ angleRange, setAngleRange ] = useState(defaultAngleRange)
 
   const onChange = useCallback((prop, value) => {
-    let updatedDemand = { ...demand }
-    _set(updatedDemand, prop, value)
-    // updatedDemand[prop] = value
-    setDemand(updatedDemand)
-  }, [ demand, setDemand ])
+    let updatedAngleRange = { ...angleRange }
+    _set(updatedAngleRange, prop, value)
+    setAngleRange(updatedAngleRange)
+  }, [ angleRange, setAngleRange ])
   
-  const onChangeAzimuthAngle = useCallback(({ from, to }) => {
-    onChange('productParams.controlledInputs.azimuthAngle', { from, to })
+  const onChangeAngleRangeExample1 = useCallback(({ from, to }) => {
+    onChange('example1', { from, to })
   }, [ onChange ])
   
   return (
     <div className="App">
       <header className="App-header">
-       Prisma components
+       Examples react-angle-range
       </header>
 
-      <div className="demand-card-components">
+      <div className="AngleRange-card-components">
         <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <div>
-            <h3>Azimuth Angle</h3>
+            <h3>Full range angleRange</h3>
             <AngleRange
               radius={150}
-              value={demand.productParams.controlledInputs.azimuthAngle}
-              onChange={onChangeAzimuthAngle}
+              value={AngleRange.example1}
+              onChange={onChangeAngleRangeExample1}
               handlerRadius={10}
               handlerRangeRadiusOffset={51}
               min={1}
@@ -63,17 +53,17 @@ function App() {
             />
             <div className='dashboard'>
             <div>
-              <div>center angle: {(modulus360(demand.productParams.controlledInputs.azimuthAngle.to + demand.productParams.controlledInputs.azimuthAngle.from) / 2)}°</div> 
-              <div>offset angle: ±{modulus360((demand.productParams.controlledInputs.azimuthAngle.to - demand.productParams.controlledInputs.azimuthAngle.from) )/ 2}°</div>
-              <div>from: {demand.productParams.controlledInputs.azimuthAngle.from}°</div>
-              <div>to: {demand.productParams.controlledInputs.azimuthAngle.to}°</div> 
+              <div>center angle: {(modulus360(angleRange.example1.to + angleRange.example1.from) / 2)}°</div> 
+              <div>offset angle: ±{modulus360((angleRange.example1.to - angleRange.example1.from) )/ 2}°</div>
+              <div>from: {angleRange.example1.from}°</div>
+              <div>to: {angleRange.example1.to}°</div> 
             </div>
           </div>
           </div>
           
           <div>
-            <h3>Demand: </h3>
-            {demand}
+            <h3>angleRange: </h3>
+            {JSON.stringify(angleRange)}
           </div>
         </div>
       </div>
