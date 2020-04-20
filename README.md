@@ -4,6 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/react-angle-range.svg)](https://www.npmjs.com/package/react-angle-range) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Try it yourself
+[DEMO](https://yotamberk.github.io/react-angle-range/)
+
 ## Install
 
 via npm:
