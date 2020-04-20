@@ -1,11 +1,72 @@
 import React, { useState, useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import { useMouse } from "react-use";
-import styles from "./styles.module.css";
+import injectSheet from "react-jss";
 
 const HANDLER_RADIUS = 10;
 const DEFAULT_HANDLER_RADIUS_OFFSET = 30;
 const RADIUS = 150;
+
+const styles = {
+  root: {
+    position: "relative",
+    margin: "0px",
+    display: "inline-block"
+  },
+  rootBoundaries: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    zIndex: 0
+  },
+  fullRange: {
+    border: "1px solid black",
+    overflow: "hidden",
+    position: "relative"
+  },
+  relativeAxis: {
+    position: "absolute"
+  },
+  axisCenter: {
+    position: "absolute",
+    width: 0,
+    height: 0,
+    borderRadius: 6,
+    backgroundColor: "black",
+    padding: 6,
+    paddingTop: 5,
+    paddingLeft: 5,
+    bottom: -6,
+    right: -6
+  },
+  centerAngleHandler: {
+    backgroundColor: "purple",
+    position: "absolute",
+    cursor: "drag",
+    userSelect: "none"
+  },
+  offsetAngleHandler: {
+    backgroundColor: "blue",
+    position: "absolute",
+    cursor: "drag",
+    userSelect: "none"
+  },
+  offsetsSegment: {
+    height: "100%",
+    overflow: "hidden",
+    position: "absolute",
+    width: "100%"
+  },
+  offsetsSegmentRemove: {
+    background: "rgba(0,255,0,0.5)",
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+    transformOrigin: "50% 0%"
+  }
+};
 
 const radiantsToDegrees = radians =>
   parseInt(((radians * 180) / Math.PI).toFixed(0), 10);
@@ -28,7 +89,8 @@ const getOffsetAngleOfRangeCenter = (from, to) => {
 
 const modulus360 = angle => (angle + 360) % 360;
 
-export const AngleRange = ({
+const AngleRange = ({
+  classes,
   value = { from: 0, to: 90 },
   onChange = ({ from = 0, to = 90 }) => {},
   isDisabled = false,
@@ -269,7 +331,7 @@ export const AngleRange = ({
 
   return (
     <div
-      className={styles.root}
+      className={classes.root}
       onMouseUp={onMouseUp}
       onMouseMove={onMouseMove}
       style={{
@@ -282,7 +344,7 @@ export const AngleRange = ({
       }}
     >
       <div
-        className={styles.fullRange}
+        className={classes.fullRange}
         style={{
           width: isQuarterCircle ? radius : 2 * radius,
           height: isQuarterCircle ? radius : 2 * radius,
@@ -294,7 +356,7 @@ export const AngleRange = ({
         }}
       >
         <div
-          className={styles.offsetsSegment}
+          className={classes.offsetsSegment}
           style={{
             transform: `translate(${
               isQuarterCircle ? "-100%, 0" : "0, -50%"
@@ -303,7 +365,7 @@ export const AngleRange = ({
           }}
         >
           <div
-            className={styles.offsetsSegmentRemove}
+            className={classes.offsetsSegmentRemove}
             style={{
               transform: `translate(0, 100%) rotate(${offsetAngleOfCenter}deg)`,
               transformOrigin: isQuarterCircle ? "100% 0%" : "50% 0%"
@@ -311,7 +373,7 @@ export const AngleRange = ({
           />
         </div>
         <div
-          className={styles.offsetsSegment}
+          className={classes.offsetsSegment}
           style={{
             transform: `translate(${
               isQuarterCircle ? "-100%, 0" : "0, -50%"
@@ -321,7 +383,7 @@ export const AngleRange = ({
           }}
         >
           <div
-            className={styles.offsetsSegmentRemove}
+            className={classes.offsetsSegmentRemove}
             style={{
               transform: `translate(0, 100%) rotate(${offsetAngleOfCenter}deg)`,
               transformOrigin: isQuarterCircle ? "100% 0%" : "50% 0%"
@@ -331,7 +393,7 @@ export const AngleRange = ({
       </div>
 
       <div
-        className={styles.relativeAxis}
+        className={classes.relativeAxis}
         style={{
           top: radius + Math.max(handlerRangeRadiusOffset, 0),
           left:
@@ -339,10 +401,10 @@ export const AngleRange = ({
             Math.max(handlerRangeRadiusOffset, 0)
         }}
       >
-        <div className={styles.axisCenter} ref={axisCenterEl} />
+        <div className={classes.axisCenter} ref={axisCenterEl} />
         <div
           ref={centerHandlerEl}
-          className={styles.centerAngleHandler}
+          className={classes.centerAngleHandler}
           style={{
             width: 2 * handlerRadius,
             height: 2 * handlerRadius,
@@ -356,7 +418,7 @@ export const AngleRange = ({
         />
         <div
           ref={fromAngleHandlerEl}
-          className={styles.offsetAngleHandler}
+          className={classes.offsetAngleHandler}
           style={{
             width: offsetHandlerRadius,
             height: 2 * offsetHandlerRadius,
@@ -374,7 +436,7 @@ export const AngleRange = ({
         />
         <div
           ref={toAngleHandlerEl}
-          className={styles.offsetAngleHandler}
+          className={classes.offsetAngleHandler}
           style={{
             width: offsetHandlerRadius,
             height: 2 * offsetHandlerRadius,
@@ -420,3 +482,5 @@ AngleRange.propTypes = {
   // maxOffset: PropTypes.bool,
   isQuarterCircle: PropTypes.bool
 };
+
+export default injectSheet(styles)(AngleRange);

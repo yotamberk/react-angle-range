@@ -1,6 +1,7 @@
 {
   "name": "react-angle-range",
   "version": "1.0.0",
+  "homepage": "https://yotamberk.github.io/react-angle-range/",
   "description": "a react angle range picker",
   "author": "yotamberk",
   "license": "MIT",
@@ -51,6 +52,7 @@
     "dist"
   ],
   "dependencies": {
+    "react-jss": "^10.1.1",
     "react-use": "^14.1.1"
   }
 }
