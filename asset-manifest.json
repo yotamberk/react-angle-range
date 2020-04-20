@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-angle-range/static/css/main.c9f3402c.chunk.css",
+    "main.js": "/react-angle-range/static/js/main.a6f0e10b.chunk.js",
+    "main.js.map": "/react-angle-range/static/js/main.a6f0e10b.chunk.js.map",
+    "runtime-main.js": "/react-angle-range/static/js/runtime-main.b9b0b037.js",
+    "runtime-main.js.map": "/react-angle-range/static/js/runtime-main.b9b0b037.js.map",
+    "static/js/2.77440d41.chunk.js": "/react-angle-range/static/js/2.77440d41.chunk.js",
+    "static/js/2.77440d41.chunk.js.map": "/react-angle-range/static/js/2.77440d41.chunk.js.map",
+    "index.html": "/react-angle-range/index.html",
+    "precache-manifest.38af9cbfeb1bb7ef48b95e1cfa489a09.js": "/react-angle-range/precache-manifest.38af9cbfeb1bb7ef48b95e1cfa489a09.js",
+    "service-worker.js": "/react-angle-range/service-worker.js",
+    "static/css/main.c9f3402c.chunk.css.map": "/react-angle-range/static/css/main.c9f3402c.chunk.css.map",
+    "static/js/2.77440d41.chunk.js.LICENSE.txt": "/react-angle-range/static/js/2.77440d41.chunk.js.LICENSE.txt",
+    "static/js/main.a6f0e10b.chunk.js.LICENSE.txt": "/react-angle-range/static/js/main.a6f0e10b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b9b0b037.js",
+    "static/js/2.77440d41.chunk.js",
+    "static/css/main.c9f3402c.chunk.css",
+    "static/js/main.a6f0e10b.chunk.js"
+  ]
+}
