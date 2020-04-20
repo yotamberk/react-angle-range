@@ -59,50 +59,51 @@ class Example extends Component {
 
 ### Required
 
-#### value : { from: `number`[`degress`], to: `number`[`degress`] }
+- #### value : { from: `number`[`degress`], to: `number`[`degress`] }
 The value is the controlled range given by the parent components.
 Notice that the numbers will be considered as degrees (and not as radiants) and are between 0 to 360.
 
-#### onChange : `funcion({ from, to })`
+- #### onChange : `funcion({ from, to })`
 The function receives `{ from, to }` as its arument as calculated from the picker.
 
+
 ### Optional
-#### isDisabled : `boolean` (default: `false`)
+- #### isDisabled : `boolean` (default: `false`)
 Controls whether the controller is disabled or enabled. When the controller is disabled, handles are not draggable.
 
-#### limitFrom : { min: `number`[`degress`], max: `number`[`degress`] } (default: `null`)
+- #### limitFrom : { min: `number`[`degress`], max: `number`[`degress`] } (default: `null`)
 Limit the `value.from` handler to a range of degrees between the `min` angle to the `max` angle.
 Notice that if the `value.from` is not in the range between `min` and `max`, the handler will not usable.
 
-#### limitTo : { min: `number`[`degress`], max: `number`[`degress`] } (default: `null`)
+- #### limitTo : { min: `number`[`degress`], max: `number`[`degress`] } (default: `null`)
 Limit the `value.to` handler to a range of degrees between the `min` angle to the `max` angle.
 Notice that if the `value.to` is not in the range between `min` and `max`, the handler will not usable.
 
-#### radius : `number`[`px`] (default: `150`)
+- #### radius : `number`[`px`] (default: `150`)
 Radius of the full range.
 
-#### handlerRangeRadiusOffset : `number`[`px`]  (default: `30`)
+- #### handlerRangeRadiusOffset : `number`[`px`]  (default: `30`)
 Distance of the angle handler from the full range.
 
-#### handlerRadius : `number`[`px`]  (default: `10`)
+- #### handlerRadius : `number`[`px`]  (default: `10`)
 Radius of the angle handler.
 
-#### offsetHandlerRadius : `number`[`px`]  (default: `10`)
+- #### offsetHandlerRadius : `number`[`px`]  (default: `10`)
 Distance of the offset handlers from the full range.
 
-#### offsetHandlerRadius : `number`[`px`]  (default: `10`)
+- #### offsetHandlerRadius : `number`[`px`]  (default: `10`)
 Radius of the offset handlers.
 
-#### offsetHandlerRadiusOffset : `number`[`px`]  (default: `30`)
+- #### offsetHandlerRadiusOffset : `number`[`px`]  (default: `30`)
 Distance of the offset handlers from the full range.
 
-#### min : `number`[`degress`]  (default: `0`)
+- #### min : `number`[`degress`]  (default: `0`)
 Minimal value for the range (minimal `value.from`).
 
-#### max : `number`[`degress`]  (default: `359`)
+- #### max : `number`[`degress`]  (default: `359`)
 Maximal value for the range (minimal `value.from`).
 
-#### isQuarterCircle : `boolean` (default: `false`)
+- #### isQuarterCircle : `boolean` (default: `false`)
 Create a full range of only 0 until 90 degrees. 
 The range will be the top-right range. 
 
